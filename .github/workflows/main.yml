@@ -20,7 +20,10 @@ jobs:
         run: dotnet restore 
 
       - name: Build
-        run: dotnet build 
+        run: dotnet build
+
+      - name: Test
+        run: dotnet test --collect:"XPlat Code Coverage"
 
       - name: Unit-Test
         run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
