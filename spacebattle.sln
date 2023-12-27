@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBattle.Lib", "SpaceBattle.Lib\SpaceBattle.Lib.csproj", "{6BFD0836-A76B-4CDD-9F18-79A0A3F6DDAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBattle.Lib.Tests", "SpaceBattle.Lib.Tests\SpaceBattle.Lib.Tests.csproj", "{E7A206DA-4CB6-4941-A7BE-F410479E9081}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBattle.Tests", "SpaceBattle.Tests\SpaceBattle.Tests.csproj", "{E7A206DA-4CB6-4941-A7BE-F410479E9081}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
