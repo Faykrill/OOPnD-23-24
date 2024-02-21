@@ -4,7 +4,7 @@ namespace SpaceBattle.Lib;
 
 public class EndMoveCommand : ICommand
 {
-    private IMoveCommandStopable _end;
+    private readonly IMoveCommandStopable _end;
 
     public EndMoveCommand(IMoveCommandStopable end)
     {
