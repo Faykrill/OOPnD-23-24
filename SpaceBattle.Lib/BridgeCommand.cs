@@ -2,7 +2,7 @@ namespace SpaceBattle.Lib;
 
 public class BridgeCommand: IBridgeCommand, ICommand
 {
-    const ICommand _internalCommand = null;
+    private ICommand _internalCommand;
     public BridgeCommand(ICommand internalCommand)
     {
         _internalCommand = internalCommand;
