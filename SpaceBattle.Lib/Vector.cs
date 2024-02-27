@@ -19,7 +19,7 @@ public class Vector
         {
             return false;
         }
-        return obj.GetType() == typeof(Vector) && Enumerable.SequenceEqual(((Vector)obj).array, array);
+        return coordinates.SequenceEqual( ( (Vector)obj ).coordinates);
     }
     
 
