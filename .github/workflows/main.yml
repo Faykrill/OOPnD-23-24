@@ -22,7 +22,7 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Restore dependencies
-        run: cd spacebattle && dotnet restore SpaceBattle.Lib.Tests
+        run: cd SpaceBattle.Lib && cd SpaceBattle.Tests && dotnet restore SpaceBattle.Lib.Tests
 
       - name: Install Required Tools
         run: |
