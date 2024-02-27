@@ -3,8 +3,10 @@ namespace SpaceBattle.Lib.Tests;
 public class VectorTests
 {
     readonly string path;
-    
-    path = @"../../../Vectors.txt";
+    public VectorTest()
+    {
+        path = @"../../../Vectors.txt";
+    }
     
     [Fact]
     public void Vector_GetHashCode()
