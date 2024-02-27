@@ -2,6 +2,10 @@ namespace SpaceBattle.Lib.Tests;
 
 public class VectorTests
 {
+    readonly string path;
+    
+    path = @"../../../Vectors.txt";
+    
     [Fact]
     public void Vector_GetHashCode()
     {
@@ -22,8 +26,8 @@ public class VectorTests
     public void Vector_Equality()
     {
         var arr = new int[] { 4, 6 };
-        var test1 = new Vector(arr);
-        var test2 = new Vector(arr);
+        var test1 = new Vector(path);
+        var test2 = new Vector(path);
         Assert.True(test1 == test2);
     }
 
@@ -39,7 +43,7 @@ public class VectorTests
     public void Vector_Equals_PassNotVectorType()
     {
         var num = 2;
-        var test = new Vector(new int[] { 1, 2 });
+        var test = new Vector(path);
         Assert.True(!test.Equals(num));
     }
 }
