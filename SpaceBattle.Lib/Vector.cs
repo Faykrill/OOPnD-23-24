@@ -13,7 +13,7 @@ public class Vector
         c.coordinates = (a.coordinates.Select ((x, index) => x + b.coordinates[index]).ToArray());
         return c;
     }
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         return coordinates.SequenceEqual( ( (Vector)obj ).coordinates);
     }
