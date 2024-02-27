@@ -18,15 +18,6 @@ public class VectorTests
         Assert.True(!test.Equals(null));
     }
 
-    // [Fact]
-    // public void Vector_Equality()
-    // {
-    //     var arr = new int[] { 4, 6 };
-    //     var test1 = new Vector(path);
-    //     var test2 = new Vector(path);
-    //     Assert.True(test1 == test2);
-    // }
-
     [Fact]
     public void Vector_Inequality()
     {
@@ -34,12 +25,4 @@ public class VectorTests
         var test2 = new Vector(new int[] { 1, 2 });
         Assert.True(test1 != test2);
     }
-
-    // [Fact]
-    // public void Vector_Equals_PassNotVectorType()
-    // {
-    //     var num = 2;
-    //     var test = new Vector(path);
-    //     Assert.True(!test.Equals(num));
-    // }
 }
