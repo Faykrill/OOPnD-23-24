@@ -15,11 +15,8 @@ public class Vector
     }
     public override bool Equals(object? obj)
     {
-        if (obj == null)
-        {
-            return false;
-        }
-        return coordinates.SequenceEqual( ( (Vector)obj ).coordinates);
+        var otherVector = obj as Vector;
+        return otherVector!._values.SequenceEqual(_values);
     }
     
 
