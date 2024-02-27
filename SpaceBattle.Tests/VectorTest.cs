@@ -13,7 +13,7 @@ public class VectorTests
     [Fact]
     public void Vector_PassNullInCtor()
     {
-        var arr = new int[] { 1, 5 };
+        var arr = new int[] { 6, 1 };
         var test = new Vector(arr);
         Assert.True(!test.Equals(null));
     }
@@ -21,7 +21,7 @@ public class VectorTests
     [Fact]
     public void Vector_Equality()
     {
-        var arr = new int[] { 7, 8 };
+        var arr = new int[] { 4, 6 };
         var test1 = new Vector(arr);
         var test2 = new Vector(arr);
         Assert.True(test1 == test2);
