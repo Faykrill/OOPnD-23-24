@@ -25,4 +25,4 @@ jobs:
         run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
 
       - name: Checkstyle
-        run: dotnet format style
+        run: dotnet format --verify-no-changes
