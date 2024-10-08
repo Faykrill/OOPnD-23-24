@@ -26,7 +26,6 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2">
 
     <IsTestProject>true</IsTestProject>
-  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Hwdtech.IoC" Version="1.0.0" />
