@@ -2,8 +2,10 @@ name: Main CI-pipeline
 
 on:
   push:
+    branches: [ main, master ]
   pull_request:
-    types: [opened, reopened]
+    branches: [ main, master ]
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -29,8 +31,12 @@ jobs:
           echo "Base ref: ${{ github.base_ref }}"
           echo "Head ref: ${{ github.head_ref }}"
           echo "Ref: ${{ github.ref }}"
-          git log -1
-          git diff HEAD^ HEAD
+          echo "SHA: ${{ github.sha }}"
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "PR number: ${{ github.event.pull_request.number }}"
+            echo "PR title: ${{ github.event.pull_request.title }}"
+          fi
+          git log -2 --oneline
 
       - name: Run tests with coverage
         run: dotnet test --collect:"XPlat Code Coverage"
