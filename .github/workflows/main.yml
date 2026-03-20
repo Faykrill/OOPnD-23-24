@@ -23,6 +23,15 @@ jobs:
       - name: Build
         run: dotnet build SpaceBattle.Lib --no-restore /p:ContinuousIntegrationBuild=true
 
+      - name: Debug environment
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Base ref: ${{ github.base_ref }}"
+          echo "Head ref: ${{ github.head_ref }}"
+          echo "Ref: ${{ github.ref }}"
+          git log -1
+          git diff HEAD^ HEAD
+
       - name: Run tests with coverage
         run: dotnet test --collect:"XPlat Code Coverage"
 
