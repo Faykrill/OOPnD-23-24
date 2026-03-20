@@ -2,6 +2,10 @@ name: Main CI-pipeline
 
 on:
   push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -9,21 +13,46 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Setup .NET
+
+      - name: Setup .NET7
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 7.0.x
- 
+
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --no-restore /p:ContinuousIntegrationBuild=true
+        run: dotnet build SpaceBattle.Lib --no-restore /p:ContinuousIntegrationBuild=true
 
-      - name: Test
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+      - name: Debug environment
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Base ref: ${{ github.base_ref }}"
+          echo "Head ref: ${{ github.head_ref }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "SHA: ${{ github.sha }}"
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "PR number: ${{ github.event.pull_request.number }}"
+            echo "PR title: ${{ github.event.pull_request.title }}"
+          fi
+          git log -2 --oneline
 
-      - name: Checkstyle
-        run: dotnet format style
-        
+      - name: Run tests with coverage
+        run: dotnet test --collect:"XPlat Code Coverage"
+
+      - name: Install reportgenerator
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool --version 5.2.5
+
+      - name: Generate coverage report
+        run: |
+          reportgenerator \
+            -reports:"**/coverage.cobertura.xml" \
+            -targetdir:"CoverageReport" \
+            -reporttypes:"HtmlInline_AzurePipelines;TextSummary"
+
+      - name: Display coverage summary
+        run: cat CoverageReport/Summary.txt
+
+      - name: Format
+        run: dotnet format --verify-no-changes\
