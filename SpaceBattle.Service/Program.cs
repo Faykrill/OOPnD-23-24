@@ -1,4 +1,6 @@
 ﻿using SpaceBattle.Lib;
+using Hwdtech;
+using Hwdtech.Ioc;
 
 namespace SpaceBattle.Service;
 

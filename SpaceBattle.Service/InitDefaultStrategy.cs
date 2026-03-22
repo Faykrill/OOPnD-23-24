@@ -16,10 +16,10 @@ public class InitDefaultStrategy
             }
             catch
             {
-                return new DefaultExceptionHandlerStrategy();
+                return new SpaceBattle.Lib.DefaultExceptionHandlerStrategy();
             }
 
-            return IoC.Resolve<ICommand>("Exception.Handler", args);
+            return IoC.Resolve<SpaceBattle.Lib.ICommand>("Exception.Handler", args);
         }).Execute();
     }
 }
